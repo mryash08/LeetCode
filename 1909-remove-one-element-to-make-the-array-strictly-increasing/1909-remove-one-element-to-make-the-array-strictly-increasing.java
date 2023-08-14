@@ -1,34 +1,44 @@
 class Solution {
     public boolean canBeIncreasing(int[] nums) {
         
-         int count =0;
+          if (nums.length == 2) {
+            return true;
+        }
+          int count =0;
 
-        for(int i=0; i< nums.length; i++){
-            for(int j=0; j<nums.length-1; j++){
-                if(j != i ){
-                    if(j+1 == i){
-                        if(j+2 < nums.length && nums[j] >= nums[j+2]){
-                            break;
-                        } else {
-                            count++;
+        for(int i=0; i<nums.length-1; i++){
+            if(nums[i] >= nums[i+1]){
+                if(i==0){
+                    count++;
+
+                }else {
+                    if(nums[i-1] < nums[i+1]){
+                        count++;
+                        if(count == 2){
+                            return false;
                         }
                     }else {
-                        if(nums[j] >= nums[j+1]){
-                            break;
-                        }else {
+                        if(i+2 > nums.length-1){
                             count++;
+                            if(count == 2){
+                                return false;
+                            }
+                        }else {
+                            if(nums[i] < nums[i+2]){
+                                count++;
+                                if(count == 2){
+                                    return false;
+                                }
+                            }else {
+                                return false;
+                            }
                         }
-                    }
 
+                    }
                 }
 
             }
-            if(count >= nums.length-2){
-                return true;
-            }
-            count = 0;
         }
-
-        return false;
+        return true;
     }
 }
