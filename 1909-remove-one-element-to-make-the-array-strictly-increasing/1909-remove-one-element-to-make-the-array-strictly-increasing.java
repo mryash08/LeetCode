@@ -1,29 +1,13 @@
 class Solution {
     public boolean canBeIncreasing(int[] nums) {
         
-         if (nums.length == 2) {
-            return true;
-        }
-        int count = 0;
+         int count = 0;
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] >= nums[i + 1]) {
-                if (i == 0) {
+                if (i == 0 || nums[i - 1] < nums[i + 1] || i + 2 > nums.length - 1 || nums[i] < nums[i + 2]) {
                     count++;
                 } else {
-                    if (nums[i - 1] < nums[i + 1]) {
-                        count++;
-                    } else {
-                        if (i + 2 > nums.length - 1) {
-                            count++;
-                        } else {
-                            if (nums[i] < nums[i + 2]) {
-                                count++;
-                            } else {
-                                return false;
-                            }
-                        }
-
-                    }
+                    return false;
                 }
 
             }
