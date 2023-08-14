@@ -21,17 +21,19 @@ class GfG {
        
        int tempnum = num;
        int addSum = 0;
+       int multi = 1;
        
-       for(int i=0; tempnum > 0; i++){
+       while( tempnum > 0){
            
            if(tempnum % 10 == 0){
-               if(i==0){
-                   addSum += 5;
-               }else{
-                   addSum += 5 * Math.pow(10,i);
-               }
+              
+                  addSum += 5 * multi;
+               
+             
+             
               
            }
+             multi *= 10;
            
            tempnum = tempnum/10;
        }
