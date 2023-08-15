@@ -42,15 +42,14 @@ class GfG
 	public int[] formatArray(int[] a,int n)
         {
         
-        for(int i=1; i<a.length; i++){
+        for(int i=1; i<a.length; i+=2){
             
             if(a[i] < a[i-1]){
                 int temp = a[i-1];
                 a[i-1] = a[i];
                 a[i] = temp;
             }
-            
-            i++;
+        
             
         }
         
