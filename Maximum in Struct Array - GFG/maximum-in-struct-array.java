@@ -63,10 +63,9 @@ class GfG
        int ans = 0;
        for(int i=0; i<arr.length; i++){
            
-           int inches = arr[i].feet * 12 + arr[i].inches;
+         
            
-           
-           ans = Math.max(inches,ans);
+           ans = Math.max(arr[i].feet * 12 + arr[i].inches,ans);
        }
        
        return ans;
