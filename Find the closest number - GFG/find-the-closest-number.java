@@ -94,19 +94,6 @@ class Solution{
               
               if(value < value2){
                   return ans1;
-              }else if(value == value2){
-                  return ans3;
-              }else{
-                  return ans3;
-              }
-              
-              
-          }else if(value == value1){
-              
-             if(value1 < value2){
-                  return ans2;
-              }else if(value1 == value2){
-                  return ans3;
               }else{
                   return ans3;
               }
@@ -114,13 +101,14 @@ class Solution{
               
           }else{
               
-               if(value1 < value2){
+             if(value1 < value2){
                   return ans2;
-              }else if(value1 == value2){
-                  return ans3;
-              }else{
+              }
+              else{
                   return ans3;
               }
+             
+             
           }
     }
 }
