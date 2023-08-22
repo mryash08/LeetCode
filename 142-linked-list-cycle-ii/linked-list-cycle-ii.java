@@ -31,9 +31,13 @@ public class Solution {
 
         }
 
+        if(slow != fast){
+           return null; 
+        }
+
         ListNode temp = head;
 
-        while(temp != null && slow != null){
+        while(temp != slow){
              if(slow == temp){
                 return slow;
             }
@@ -43,6 +47,6 @@ public class Solution {
            
         }
 
-        return null;
+        return slow;
     }
 }
