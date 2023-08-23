@@ -11,79 +11,37 @@
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         
+        ListNode node = new ListNode(100);
+        ListNode head = node;
+        ListNode temp = node;
+        ListNode temp1 = list1;
+        ListNode temp2 = list2;
 
-         ListNode temp1 = list1;
-         ListNode temp2 = list2;
+        while(temp1 != null && temp2 != null){
 
-         ListNode temp3 = null;
-         ListNode head = null;
+           if(temp1.val <= temp2.val){
+                 temp.next = temp1;
+                 temp1 = temp1.next;
+                 temp = temp.next;
+           }else{
+                temp.next = temp2;
+                 temp2 = temp2.next;
+                 temp = temp.next;
 
-         while(temp1 != null && temp2 != null){
-             if(temp1.val > temp2.val){
-                 if(temp3 == null){
-                     ListNode node = new ListNode(temp2.val);
-                    head = node;
-                    temp3 = node;
-                    temp2 = temp2.next;
-                 }else{
-                     ListNode node = new ListNode(temp2.val);
-                     temp3.next = node;
-                     temp3 = temp3.next;
-                     temp2 = temp2.next;
+           }
+        }
 
-                 }
-                 
-             }else{
-                 if(temp3 == null){
-                     ListNode node = new ListNode(temp1.val);
-                    head = node;
-                    temp3 = node;
-                    temp1 = temp1.next;
-                 }else{
-                     ListNode node = new ListNode(temp1.val);
-                     temp3.next = node;
-                     temp3 = temp3.next;
-                     temp1 = temp1.next;
-
-                 }
-             }
-         }
-
-         while(temp1 != null){
-           
-           if(temp3 == null){
-                     ListNode node = new ListNode(temp1.val);
-                    head = node;
-                    temp3 = node;
-                    temp1 = temp1.next;
-                 }else{
-                     ListNode node = new ListNode(temp1.val);
-                     temp3.next = node;
-                     temp3 = temp3.next;
-                     temp1 = temp1.next;
-
-                 }
-              
-
-                 
-         }
-         while(temp2 != null){
-                
-                      if(temp3 == null){
-                     ListNode node = new ListNode(temp2.val);
-                    head = node;
-                    temp3 = node;
-                    temp2 = temp2.next;
-                 }else{
-                     ListNode node = new ListNode(temp2.val);
-                     temp3.next = node;
-                     temp3 = temp3.next;
-                     temp2 = temp2.next;
-
-                 }
-
-         }
-
-         return head;
+        while (temp1!= null){
+            temp.next = temp1;
+                 temp1 = temp1.next;
+                 temp = temp.next;
+        }
+        
+         while (temp2!= null){
+            temp.next = temp2;
+                 temp2 = temp2.next;
+                 temp = temp.next;
+        }
+        return head.next;
     }
 }
