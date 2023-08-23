@@ -3,12 +3,10 @@ class Solution {
 
          int count = 0;
 
-         if(arr.length <= 2){
+         if(arr.length <= 2 || arr[0] > arr[1]){
              return false;
          }
-         if(arr[0] > arr[1]){
-             return false;
-         }
+        
          
 
         for(int i=0; i<arr.length-1; i++){
