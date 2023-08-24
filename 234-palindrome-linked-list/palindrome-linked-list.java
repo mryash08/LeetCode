@@ -35,7 +35,7 @@ class Solution {
          ListNode p1 = head;
          ListNode p2 = slow.next;
 
-         while(p2 != null && p1 != slow.next){
+         while(p2 != null){
              if(p1.val != p2.val){
                  return false;
              }
