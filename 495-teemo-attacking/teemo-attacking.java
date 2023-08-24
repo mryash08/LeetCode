@@ -3,12 +3,10 @@ class Solution {
          int rangeEnd =0;
         int ans = 0;
 
-         if(timeSeries[0] == 0){
-            ans += duration;
-            rangeEnd = duration-1;
-        }
+        ans += duration;
+        rangeEnd = timeSeries[0]+(duration-1);
 
-        for(int i=0; i<timeSeries.length; i++){
+        for(int i=1; i<timeSeries.length; i++){
 
              if(timeSeries[i] > rangeEnd){
                  ans += duration;
