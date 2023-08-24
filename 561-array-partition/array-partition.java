@@ -1,13 +1,25 @@
 class Solution {
-    public int arrayPairSum(int[] nums) {
-
-        Arrays.sort(nums);
-        int ans =0;
-        for(int i=0; i<nums.length; i+=2){
-            
-                ans += nums[i];
-            
-        }
-        return ans;
+   public int arrayPairSum(int[] nums) {
+    int[] count = new int[20001]; // Range of integers from -10000 to 10000
+    
+    for (int num : nums) {
+        count[num + 10000]++;
     }
+    
+    int maxSum = 0;
+    boolean isEven = true;
+    
+    for (int num = 0; num < count.length; num++) {
+        while (count[num] > 0) {
+            if (isEven) {
+                maxSum += num - 10000;
+            }
+            isEven = !isEven;
+            count[num]--;
+        }
+    }
+    
+    return maxSum;
+}
+
 }
