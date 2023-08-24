@@ -1,6 +1,6 @@
 class Solution {
    public int arrayPairSum(int[] nums) {
-    int[] count = new int[20001]; // Range of integers from -10000 to 10000
+    int[] count = new int[20001];
     
     for (int num : nums) {
         count[num + 10000]++;
