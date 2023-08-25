@@ -5,9 +5,12 @@ class Solution {
       HashSet<Integer> set = new HashSet();
       for(int num : candyType){
           set.add(num);
+          if(set.size() == (candyType.length/2)){
+              return candyType.length/2;
+          }
       }
 
-      return Math.min(candyType.length/2,set.size());
+      return set.size();
 
        
     }
