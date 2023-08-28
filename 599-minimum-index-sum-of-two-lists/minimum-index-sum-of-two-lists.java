@@ -18,7 +18,6 @@ class Solution {
                 ans.clear();
                 ans.add(list1[i]);
                  lastPosition = i + map.get(list1[i]);
-
            }
         }
         
