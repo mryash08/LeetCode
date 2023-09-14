@@ -9,17 +9,13 @@ class Solution {
                     i--;
                 }while(i >= 0 && pushed[i] == -1);
                 j++;
-                if(i < 0){
-                    i = j;
-                }
+                if(i < 0) i = j;
             }else{
                 do{
                     i++;
                 } while(i < pushed.length-1 && pushed[i] == -1);
             }
-            if(i > pushed.length-1){
-                return false;
-            }
+            if(i > pushed.length-1) return false;
         }
         return true;
     }
