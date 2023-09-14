@@ -11,13 +11,13 @@ class MinStack {
         st.push(val);
         if(min.size() == 0){
             min.push(val);
-        }else{
-            if(min.peek() > val){
+        }else if(min.peek() > val){
+            
                 min.push(val);
             }else{
                 min.push(min.peek());
             }
-        }
+        
     }
     
     public void pop() {
