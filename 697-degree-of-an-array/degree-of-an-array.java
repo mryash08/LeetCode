@@ -12,18 +12,14 @@ class Solution {
                temp[2]++;
                 map.put(nums[i],temp);
             }else{
-                int temp[] = {i , -1 , 1};
+                int temp[] = {i , i , 1};
                 map.put(nums[i],temp);
             }
 
             int temp[] =  map.get(nums[i]);
             int count = temp[2];
-            int diff;
-            if(temp[1] == -1){
-                 diff = 1;
-            }else{
-                 diff = (temp[1] - temp[0]) + 1;
-            }
+            int diff = (temp[1] - temp[0]) + 1;
+            
 
             if(count > maxValue || count == maxValue && diff < maxLength){
                 maxValue = count;
