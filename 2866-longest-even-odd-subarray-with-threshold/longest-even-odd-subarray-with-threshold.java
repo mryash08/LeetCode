@@ -15,8 +15,8 @@ class Solution {
         int right;
         int ans = 0;
         if(left != -5){
-                     ans = Math.max(ans,1);
-                 }
+          ans = Math.max(ans,1);
+        }
         for(right=left+1; right >= 0 && right < nums.length; right++){
             if(nums[right]%2 != nums[right-1]%2 && nums[right] <= threshold){
                      ans = Math.max(ans,(right-left)+1);
