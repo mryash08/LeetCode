@@ -10,7 +10,6 @@ class Solution {
             }
             row[i] = count;
         }
-
         for(int i=0; i<mat[0].length; i++){
             count = 0;
             for(int j=0; j<mat.length; j++){
@@ -24,8 +23,6 @@ class Solution {
                   if(mat[i][j] == 1 && row[i] == 1 && column[j] == 1) count++;
             }
         }
-
-
         return count;
     }
 }
