@@ -15,8 +15,8 @@ class Solution {
                         count++;
                     }
                 }
-                if(i >= 0 && i < board.length && j >= 0 && j < board[0].length && board[i][j] == 0 && count == 3) ans[i][j] = 1;
-                if(i >= 0 && i < board.length && j >= 0 && j < board[0].length && board[i][j] == 1 && count == 2 || count == 3) ans[i][j] = 1;
+                if(board[i][j] == 0 && count == 3) ans[i][j] = 1;
+                if(board[i][j] == 1 && count == 2 || count == 3) ans[i][j] = 1;
             }
         }
 
