@@ -1,6 +1,5 @@
 class Solution {
     public int countHomogenous(String s) {
-
         int start = 0;
         int end = 0;
         long ans = 0;
