@@ -1,7 +1,6 @@
 class Solution {
     public int numberOfPoints(List<List<Integer>> nums) {
         Collections.sort(nums, new Comparator<List<Integer>>() {
-            @Override
             public int compare(List<Integer> o1, List<Integer> o2) {
                 return o1.get(0).compareTo(o2.get(0));
             }
