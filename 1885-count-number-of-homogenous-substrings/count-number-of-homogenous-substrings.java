@@ -9,9 +9,9 @@ class Solution {
                  end++;
             }
             long size = (end-start);
-            ans = (ans + size * (size+1)/2) % 1000000007;
+            ans += size * (size+1)/2;
             start = end;
         }
-        return (int)ans;
+        return (int)(ans % 1000000007);
     }
 }
