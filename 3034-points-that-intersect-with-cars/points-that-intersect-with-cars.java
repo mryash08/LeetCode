@@ -6,7 +6,6 @@ class Solution {
             }
         });
         int ans = 0;
-        int min = nums.get(0).get(0);
         int max = nums.get(0).get(1);
          ans = ans + (nums.get(0).get(1) - nums.get(0).get(0)) + 1;
         for(int i=1; i<nums.size(); i++){
