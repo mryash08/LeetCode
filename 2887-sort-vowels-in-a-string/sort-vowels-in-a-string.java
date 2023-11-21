@@ -11,20 +11,20 @@ class Solution {
                 arr[s.charAt(i)]++;
             }
         }
-        String ans = "";
+        StringBuilder ans = new StringBuilder();
         int idx = 64;
         for(int i=0; i<s.length(); i++){
             while(arr[idx] == 0 && idx < 122){
                 idx++;
             }
             if(list.contains(s.charAt(i))){
-                ans += (char)(idx);
+                ans.append((char)(idx));
                 arr[idx]--;
             }else{
-                ans += s.charAt(i);
+                ans.append(s.charAt(i));
             }
         }
 
-        return ans;
+        return ans.toString();
     }
 }
