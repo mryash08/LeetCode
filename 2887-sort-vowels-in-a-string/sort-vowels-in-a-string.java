@@ -12,7 +12,7 @@ class Solution {
             }
         }
         String ans = "";
-        int idx = 0;
+        int idx = 64;
         for(int i=0; i<s.length(); i++){
             while(arr[idx] == 0 && idx < 122){
                 idx++;
