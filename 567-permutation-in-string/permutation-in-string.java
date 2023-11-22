@@ -8,18 +8,19 @@ class Solution {
         HashMap<Character,Integer> freq = new HashMap<>();
         int start = 0;
         int end = 0;
-        while(end < s1.length()){
-             freq.put(s2.charAt(end),freq.getOrDefault(s2.charAt(end),0)+1);
-             end++;
-        }
-        if(map.equals(freq)) return true;
         while(end < s2.length()){
-            freq.put(s2.charAt(start),freq.get(s2.charAt(start))-1);
-            if(freq.get(s2.charAt(start)) == 0) freq.remove(s2.charAt(start));
-            freq.put(s2.charAt(end),freq.getOrDefault(s2.charAt(end),0)+1);
-            if(map.equals(freq)) return true;
+            while(start < s2.length() && !map.containsKey(s2.charAt(start))){
+                start++;
+            }
+            end = start;
+            while(end < s2.length() && end-start+1 <= s1.length() && map.containsKey(s2.charAt(end))){
+                freq.put(s2.charAt(end),freq.getOrDefault(s2.charAt(end),0)+1);
+                end++;
+            }
+            if(end - start == s1.length() && map.equals(freq)) return true;
             start++;
-            end++;
+            freq.clear();
+
         }
         return false;   
     }
