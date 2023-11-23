@@ -9,7 +9,6 @@ class Solution {
         int start = 0;
         int end = 0;
         int currCount = 0;
-        int ans = 0;
         int min = 0;
         for(; end<count; end++){
               if(nums[end] == 1){
@@ -17,14 +16,14 @@ class Solution {
               }
         }
         min = count-currCount;
-        for(; end<nums.length; end++){
+        while(end<nums.length){
             if(nums[start++] == 1) currCount--;
-            if(nums[end] == 1) currCount++;
+            if(nums[end++] == 1) currCount++;
             min = Math.min(min,count-currCount);
         }
         end = 0;
-        for(; start<nums.length; start++){
-            if(nums[start] == 1) currCount--;
+        while(start<nums.length){
+            if(nums[start++] == 1) currCount--;
             if(nums[end++] == 1) currCount++;
             min = Math.min(min,count-currCount);
         }
