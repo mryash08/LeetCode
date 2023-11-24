@@ -8,38 +8,15 @@ class Solution {
             int col = startPos[1];
             boolean flag = false;
             for(int i=idx; i<s.length(); i++){
-                if(arr[i] == 'R'){
-                    if(col < n-1){
-                        col++;
-                    }else{
-                        ans[idx] = i-idx;
-                        flag = true;
-                        break;
-                    }
-                }else if(arr[i] == 'D'){
-                    if(row < n-1){
-                        row++;
-                    }else{
-                        ans[idx] = i-idx;
-                        flag = true;
-                        break;
-                    }
-                }else if(arr[i] == 'L'){
-                    if(col > 0){
-                        col--;
-                    }else{
-                        ans[idx] = i-idx;
-                        flag = true;
-                        break;
-                    }
-                }else{
-                     if(row > 0){
-                        row--;
-                    }else{
-                        ans[idx] = i-idx;
-                        flag = true;
-                        break;
-                    }
+                if(arr[i] == 'R') col++;
+                else if(arr[i] == 'D') row++;
+                else if(arr[i] == 'L') col--;
+                else row--;
+
+                if(col > n-1 || col < 0 || row < 0 || row > n-1){
+                    ans[idx] = i-idx;
+                    flag = true;
+                    break;
                 }
             }
             if(!flag) ans[idx] = s.length()-idx;
