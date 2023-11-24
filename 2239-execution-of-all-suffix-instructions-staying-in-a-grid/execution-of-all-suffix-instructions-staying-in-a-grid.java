@@ -1,46 +1,27 @@
 class Solution {
-    public int[] executeInstructions(int m, int[] startPos, String s) {
-            int [] hor = new int [2001];
-            int [] ver = new int [2001];
+    public int[] executeInstructions(int n, int[] startPos, String s) {
+        int[] ans = new int[s.length()];
+        char[] arr = s.toCharArray();
+        int idx = 0;
+        while(idx < arr.length){
+            int row = startPos[0];
+            int col = startPos[1];
+            boolean flag = false;
+            for(int i=idx; i<s.length(); i++){
+                if(arr[i] == 'R') col++;
+                else if(arr[i] == 'D') row++;
+                else if(arr[i] == 'L') col--;
+                else row--;
 
-            Arrays.fill(hor, s.length());
-            Arrays.fill(ver, s.length());
-
-            int h = 1000;
-            int v = 1000;
-
-            int lB = startPos[1] + 1;
-            int rB = m - startPos[1];
-            int uB = startPos[0] + 1;
-            int dB = m - startPos[0];
-
-            int [] result = new int [s.length()];
-            int res;
-
-            char c;
-
-            for (int i = s.length() - 1; i >= 0; --i){
-                c = s.charAt(i);
-
-                if (c == 'U')
-                    ver[v++] = i;
-                else if (c == 'D')
-                    ver[v--] = i;
-                else if (c == 'R')
-                    hor[h--] = i;
-                else
-                    hor[h++] = i;
-
-
-                res = s.length();
-                res = Math.min(res, hor[h - lB] );
-                res = Math.min(res, hor[h + rB] );
-                res = Math.min(res, ver[v - uB]);
-                res = Math.min(res, ver[v + dB]);
-
-                result[i] = res - i;
+                if(col > n-1 || col < 0 || row < 0 || row > n-1){
+                    ans[idx] = i-idx;
+                    flag = true;
+                    break;
+                }
             }
-
-            return result;
+            if(!flag) ans[idx] = s.length()-idx;
+            idx++;
         }
+         return ans;
+    }
 }
