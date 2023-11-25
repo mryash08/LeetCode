@@ -6,13 +6,9 @@ class Solution {
          int[] ans = new int[nums.length];
          for(int i=0; i<nums.length; i++){
              if(i == 0){
-                int nextSum = (nums[nums.length-1] - nums[i]) - (nums[0] * (nums.length-1));
-                ans[0] = nextSum;
+                ans[0] = (nums[nums.length-1] - nums[i]) - (nums[0] * (nums.length-1));
              }else{
-                int ele = nums[i] - nums[i-1];
-                int prevSum =  (i * ele) - nums[i-1] ;
-                int nextSum =  (nums[nums.length-1] - nums[i]) - ((nums.length-i-1) * ele);
-                ans[i] = prevSum + nextSum;
+                ans[i] = (i * (nums[i] - nums[i-1])) - nums[i-1] + (nums[nums.length-1] - nums[i]) - ((nums.length-i-1) * (nums[i] - nums[i-1]));
              }
             
          }
