@@ -10,7 +10,6 @@ class Solution {
                 sIndex[value] = i;
             }
         }
-
         for(int i=0; i<sIndex.length; i++){
             for(int j=0; j<sIndex.length-i-1; j++){
                 if(sIndex[j] > sIndex[j+1]){
