@@ -2,9 +2,10 @@ class Solution {
     public List<Integer> partitionLabels(String s) {
        int[] sIndex = new int[27];
         int[] eIndex = new int[27];
+        char[] arr = s.toCharArray();
         Arrays.fill(sIndex,-1);
-        for (int i = 0; i < s.length(); i++) {
-            int value = s.charAt(i) - 97;
+        for (int i = 0; i < arr.length; i++) {
+            int value = arr[i] - 97;
             eIndex[value] = i;
             if(sIndex[value] == -1){
                 sIndex[value] = i;
