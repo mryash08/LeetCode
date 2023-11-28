@@ -5,21 +5,22 @@ class Solution {
         int i=0;
         long ans = 1;
         int mCount = 0;
-        while(i<corridor.length()){
+        char[] arr = corridor.toCharArray();
+        while(i<arr.length){
             pCount = 0;
             sCount = 0;
-            while(i<corridor.length() &&  sCount != 2){
-                if(corridor.charAt(i) == 'S'){
+            while(i<arr.length &&  sCount != 2){
+                if(arr[i] == 'S'){
                     sCount++;
                     mCount++;
                 }
                 i++;
             }
-            while(i<corridor.length() && corridor.charAt(i) == 'P'){
+            while(i<arr.length && arr[i] == 'P'){
                 pCount++;
                 i++;
             }
-         if(i<corridor.length()) ans =  ((pCount+1) * ans) % 1000000007;
+         if(i<arr.length) ans =  ((pCount+1) * ans) % 1000000007;
 
         }
         if(sCount % 2 == 1 || mCount == 0) return 0;
