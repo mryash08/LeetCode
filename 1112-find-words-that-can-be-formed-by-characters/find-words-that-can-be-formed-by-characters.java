@@ -1,27 +1,29 @@
 class Solution {
     public int countCharacters(String[] words, String chars) {
-        int[] freq = new int[27];
-        char[] arr = chars.toCharArray();
-        for(int i=0; i<arr.length; i++){
-            freq[arr[i]-'a']++;
+        int[] counts = new int[26];
+        for(int i=0;i<chars.length();i++)
+        {
+            counts[chars.charAt(i)-'a']++;
         }
-        int ans = 0;
-        for(int i=0; i<words.length; i++){
-            int[] freq1 = new int[27];
-                boolean flag = false;
-                char[] arr1 = words[i].toCharArray();
-            for(int j=0; j<arr1.length; j++){
-                freq1[arr1[j]-'a']++;
-                if((freq[arr1[j]-'a']) < (freq1[arr1[j]-'a'])){
-                    flag = true;
-                    break;
-                }
-               
-            }
-             if(!flag){
-                  ans += words[i].length();
-                }
+        int res =0 ;
+        for(String s : words)
+        {
+            if(canForm(s,counts))
+                res+=s.length();
         }
-        return ans;
+        return res;
+    }
+
+    boolean canForm(String word, int[] counts)
+    {
+        int[] c = new int[26];
+        for(int i =0;i<word.length();i++)
+        {
+            int x = word.charAt(i)-'a';
+            c[x]++;
+            if(c[x] > counts[x])
+                return false;
+        }
+        return true;
     }
 }
