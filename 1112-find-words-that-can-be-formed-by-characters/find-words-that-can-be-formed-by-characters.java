@@ -1,8 +1,9 @@
 class Solution {
     public int countCharacters(String[] words, String chars) {
         int[] freq = new int[27];
-        for(int i=0; i<chars.length(); i++){
-            freq[chars.charAt(i)-'a']++;
+        char[] arr = chars.toCharArray();
+        for(int i=0; i<arr.length; i++){
+            freq[arr[i]-'a']++;
         }
         int ans = 0;
         for(int i=0; i<words.length; i++){
