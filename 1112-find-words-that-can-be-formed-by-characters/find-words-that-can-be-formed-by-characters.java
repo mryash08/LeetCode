@@ -12,9 +12,10 @@ class Solution {
                 freq1[k] = freq[k];
             }
                 boolean flag = false;
-            for(int j=0; j<words[i].length(); j++){
-                freq1[words[i].charAt(j)-'a']--;
-                if(freq1[words[i].charAt(j)-'a'] < 0){
+                char[] arr1 = words[i].toCharArray();
+            for(int j=0; j<arr1.length; j++){
+                freq1[arr1[j]-'a']--;
+                if(freq1[arr1[j]-'a'] < 0){
                     flag = true;
                     break;
                 }
