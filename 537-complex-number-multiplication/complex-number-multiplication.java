@@ -2,39 +2,41 @@ class Solution {
     public String complexNumberMultiply(String num1, String num2) {
         char s1 = '+';
         char s2 = '+';
+        char[] arr1 = num1.toCharArray();
+        char[] arr2 = num2.toCharArray();
         int i=0; int j=0;
-        if(num1.charAt(0) == '-'){
+        if(arr1[0] == '-'){
             s1 = '-';
             i++;
         }
-        if(num2.charAt(0) == '-'){
+        if(arr2[0] == '-'){
             s2 = '-';
             j++;
         }
         int n1 = 0; int multi = 10;
-        while(num1.charAt(i) >= 48 && num1.charAt(i) <= 57){
-            n1 = n1*multi + (num1.charAt(i++)-'0');
+        while(arr1[i] >= 48 && arr1[i] <= 57){
+            n1 = n1*multi + (arr1[i++]-'0');
         }
         int n2 = 0;  multi = 10;
-        while(num2.charAt(j) >= 48 && num2.charAt(j) <= 57){
-            n2 = n2*multi + (num2.charAt(j++)-'0');
+        while(arr2[j] >= 48 && arr2[j] <= 57){
+            n2 = n2*multi + (arr2[j++]-'0');
         }
 
         String sign1 = ""+num1.charAt(i++);
-        while(num1.charAt(i) == '+' || num1.charAt(i) == '-'){
-            sign1 += num1.charAt(i++);
+        while(arr1[i] == '+' || arr1[i] == '-'){
+            sign1 += arr1[i++];
         }
         String sign2 = ""+num2.charAt(j++);
-        while(num2.charAt(j) == '+' || num2.charAt(j) == '-'){
-            sign2 += num2.charAt(j++);
+        while(arr2[j] == '+' || arr2[j] == '-'){
+            sign2 += arr2[j++];
         }
         int f1 = 0;  multi = 10;
-        while(num1.charAt(i) >= 48 && num1.charAt(i) <= 57){
-            f1 = f1*multi + (num1.charAt(i++)-'0');
+        while(arr1[i] >= 48 && arr1[i] <= 57){
+            f1 = f1*multi + (arr1[i++]-'0');
         }
         int f2 = 0;  multi = 10;
-        while(num2.charAt(j) >= 48 && num2.charAt(j) <= 57){
-            f2 = f2*multi + (num2.charAt(j++)-'0');
+        while(arr2[j] >= 48 && arr2[j] <= 57){
+            f2 = f2*multi + (arr2[j++]-'0');
         }
         int first = 0;
         if(s1 == '-' && s2 == '-'){
