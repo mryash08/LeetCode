@@ -1,5 +1,6 @@
 class Solution {
     public String convert(String s, int numRows) {
+        char[] arr = s.toCharArray();
         if(numRows == 1) return s;
         int row = 0;
         StringBuilder str = new StringBuilder();
@@ -8,13 +9,13 @@ class Solution {
             int up = row * 2;
             int down = numRows * 2;
             int i=row;
-            while(i<s.length()){
-                if(i < s.length() && numRows!= 0){
-                    str.append(s.charAt(i));
+            while(i<arr.length){
+                if(i < arr.length && numRows!= 0){
+                    str.append(arr[i]);
                     i += down;
                 }
                 if(i < s.length() && row != 0){
-                     str.append(s.charAt(i));
+                     str.append(arr[i]);
                      i += up;
                 }
             }
