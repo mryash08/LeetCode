@@ -1,10 +1,8 @@
 class Solution {
     public int xor(int[] arr){
         int ans = 0;
-             for(int i=0; i<arr.length; i++){
-                   ans ^= arr[i]; 
-             }
-             return ans;
+        for(int i=0; i<arr.length; i++) ans ^= arr[i]; 
+        return ans;
     }
     public int xorAllNums(int[] nums1, int[] nums2) {
         int n = nums1.length;
