@@ -10,6 +10,6 @@ class Solution {
         if(n % 2 == 0 && m % 2 == 0) return 0;
         if(n  % 2 == 0) return xor(nums1);
         if(m  % 2 == 0) return xor(nums2);
-        else return xor(nums1) ^ xor(nums2);
+        return xor(nums1) ^ xor(nums2);
     }
 }
