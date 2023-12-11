@@ -4,7 +4,6 @@ class Solution {
         int p1 = -1;
         int prevEle = nums[0];
         for(int i=1; i<nums.length; i++){
-             
              if(nums[i] != prevEle) count = 0;
              if(p1 == -1) prevEle = nums[i];
              count++;
