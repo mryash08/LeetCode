@@ -1,18 +1,18 @@
 import java.util.*;
 class Solution {
     public int maxWidthOfVerticalArea(int[][] points) {
-         Arrays.sort(points, new Comparator<int[]>() {
-                 public int compare(int[] o1, int[] o2) {
-                   return o1[0] - o2[0];
-                 }
-         });
-         int diff = Integer.MIN_VALUE;
-         for(int i=1; i<points.length; i++){
-             int temp = points[i][0] - points[i-1][0];
-             if(diff < temp){
-                 diff = temp;
-             }
+         int[] temp = new int[points.length];
+         for(int i=0; i<points.length; i++){
+             temp[i] = points[i][0];
          }
+         Arrays.sort(temp);
+         int diff = Integer.MIN_VALUE;
+        for(int i=1; i<temp.length; i++){
+            int tempDiff = temp[i] - temp[i-1];
+            if(diff < tempDiff){
+                diff = tempDiff;
+            }
+        }
         return diff;
     }
 }
