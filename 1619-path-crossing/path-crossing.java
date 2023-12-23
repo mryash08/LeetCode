@@ -1,10 +1,10 @@
 import java.util.*;
 class Solution {
     public boolean isPathCrossing(String path) {
-       HashSet<String> set = new HashSet<>();
+       HashSet<Integer> set = new HashSet<>();
         int x=0; int y=0;
         for(int i=0; i<path.length(); i++){
-            String s = String.valueOf(x) + "|"+String.valueOf(y);
+            int s = (x * 10 + 1) * 10+ y;
             if(set.contains(s)) return true;
             else set.add(s);
             char p = path.charAt(i);
@@ -13,7 +13,7 @@ class Solution {
             else  if(p == 'S') x--;
             else if(p == 'W') y--;
         }
-        if(set.contains(String.valueOf(x) +"|"+ String.valueOf(y) )) return true;
+        if(set.contains((x * 10 + 1)*10 + y)) return true;
         return false;
     }
 }
