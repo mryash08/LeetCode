@@ -10,7 +10,6 @@ class Solution {
             }else{
                 freq[t] = i;
             }
-            
         }
         return ans;
     }
