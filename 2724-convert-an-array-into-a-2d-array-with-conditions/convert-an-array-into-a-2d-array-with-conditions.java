@@ -18,12 +18,6 @@ class Solution {
         }
         return ans;
 
-
-
-
-
-
-
         // nlogn
         // Arrays.sort(nums);
         // List<List<Integer>> ans = new ArrayList<>();
