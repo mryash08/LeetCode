@@ -2,19 +2,13 @@ class Solution {
     public List<List<Integer>> findMatrix(int[] nums) {
          
          int[] freq = new int[201];
-         for(int i=0; i<nums.length; i++){
-             freq[nums[i]]++;
-         }
          List<List<Integer>> ans = new ArrayList<>();
-        for(int i=0; i<freq.length; i++){
-            int j = 0;
-            while(j<freq[i]){
-                 if(ans.size() <= j){
+        for(int i=0; i<nums.length; i++){
+                 if(ans.size() <= freq[nums[i]]){
                      ans.add(new ArrayList<>());
                  }
-                 ans.get(j).add(i);
-                 j++;
-            }
+                 ans.get(freq[nums[i]]).add(nums[i]);
+                 freq[nums[i]]++;
         }
         return ans;
 
