@@ -6,8 +6,9 @@ class Solution {
             for(int j=0; j<bank[i].length(); j++){
                 if(bank[i].charAt(j) == '1') t++;
             }
-            ans += prev * t;
+            
             if(t != 0){
+                ans += prev * t;
                 prev = t;
             }
         }
