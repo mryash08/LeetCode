@@ -1,5 +1,5 @@
 class Solution {
-    int maxProfit(int[] prices) //peak valley approach
+    int maxProfit(int[] prices)
     {
         int i=0;
         int peak=prices[0];
@@ -11,7 +11,7 @@ class Solution {
                 i++;
             valley=prices[i];
             while(i<prices.length-1 && prices[i+1]>=prices[i])
-                i++;//post fix use 
+                i++;
             peak=prices[i];
             maxProfit+=peak-valley;
         }
