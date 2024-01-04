@@ -2,21 +2,21 @@ class Solution {
     public int minOperations(int[] nums) {
         Arrays.sort(nums);
 
-        int res = 0;
-        int s = 0;
-        while(s < nums.length){
-            int e = s;
+        int ans = 0;
+        int start = 0;
+        while(start < nums.length){
+            int end = start;
             
-            while(e < nums.length && nums[e] == nums[s]) {
-                e++;
+            while(end < nums.length && nums[end] == nums[start]) {
+                end++;
             }
-            int count = e-s;
+            int count = end-start;
             if(count == 1) return -1;
-            res += count/3;
+            ans += count/3;
 
-            if(count%3 != 0) res++;
-            s=e;
+            if(count%3 != 0) ans++;
+            start=end;
         }
-        return res;
+        return ans;
     }
 }
