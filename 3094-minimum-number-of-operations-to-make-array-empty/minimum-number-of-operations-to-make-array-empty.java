@@ -1,20 +1,22 @@
 class Solution {
     public int minOperations(int[] nums) {
-        HashMap<Integer,Integer> freq = new HashMap<>();
-        for(int i:nums){
-            freq.put(i,freq.getOrDefault(i,0)+1);
-        }
-        int ans = 0;
-        for(int i : freq.values()){
-            if(i == 1) return -1;
-            if(i % 3 == 0){
-                ans += i/3;
-            }else if(i % 3 == 2 || i % 3 == 1){
-                ans += (i/3)+1;
-            }else if(i % 2 == 0 || i % 2 == 1){
-                ans += i/2;
+        Arrays.sort(nums);
+
+        int res = 0;
+        int s = 0;
+        while(s < nums.length){
+            int e = s;
+            
+            while(e < nums.length && nums[e] == nums[s]) {
+                e++;
             }
+            int count = e-s;
+            if(count == 1) return -1;
+            res += count/3;
+
+            if(count%3 != 0) res++;
+            s=e;
         }
-        return ans;
+        return res;
     }
 }
