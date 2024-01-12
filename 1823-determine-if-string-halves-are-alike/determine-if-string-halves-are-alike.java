@@ -1,15 +1,22 @@
 class Solution {
     public boolean halvesAreAlike(String s) {
-	HashSet<Character> set = new HashSet<>();
-	for (char c : "aeiouAEIOU".toCharArray())
-		set.add(c);
-
-	int count = 0;
-	for (int i = 0; i < s.length() / 2; i++) {
-		if (set.contains(s.charAt(i))) count++;
-		if (set.contains(s.charAt(i + s.length() / 2))) count--;
-	}
-
-	return count == 0;
-}
+        int mid = s.length() / 2;
+        String firstHalf = s.substring(0, mid);
+        String secondHalf = s.substring(mid);
+        
+        int countFirst = countVowels(firstHalf);
+        int countSecond = countVowels(secondHalf);
+        
+        return countFirst == countSecond;
+    }
+    
+    private int countVowels(String str) {
+        int count = 0;
+        for (char ch : str.toCharArray()) {
+            if ("AEIOUaeiou".indexOf(ch) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
