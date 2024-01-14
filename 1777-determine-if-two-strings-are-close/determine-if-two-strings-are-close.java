@@ -1,5 +1,5 @@
 class Solution {
-    private int N = 26;
+     int N = 26;
     public boolean closeStrings(String word1, String word2) {
         int[] arr1 = new int[N], arr2 = new int[N];
         for (char ch : word1.toCharArray())
