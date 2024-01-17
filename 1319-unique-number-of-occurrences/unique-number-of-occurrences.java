@@ -1,15 +1,20 @@
 class Solution {
     public boolean uniqueOccurrences(int[] arr) {
-        Map<Integer, Integer> freq = new HashMap<>();
-        for (int x : arr) {
-            freq.put(x, freq.getOrDefault(x, 0) + 1);
+        int[] numberOfOccurrences = new int[2001];
+        boolean[] used = new boolean[1001];
+
+        for (int i : arr) {
+            numberOfOccurrences[1000 + i]++;
         }
 
-        Set<Integer> s = new HashSet<>();
-        for (int x : freq.values()) {
-            s.add(x);
+        for (int i : arr) {
+            int count = numberOfOccurrences[1000 + i]; // идем по исходному массиву
+            numberOfOccurrences[1000 + i] = 0; // достаем кол-во повторений и зануляем его
+            if (count > 0) {
+                if (used[count]) return false;
+                else used[count] = true;
+            }
         }
-
-        return freq.size() == s.size();
+        return true;
     }
 }
