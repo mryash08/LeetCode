@@ -7,10 +7,11 @@ class Solution {
                 matrix[i][j] += matrix[i][j-1];
             }
         }
+        HashMap<Integer,Integer> map = new HashMap<>();
         int ans = 0;
         for(int i=0; i<m; i++){
             for(int j=i; j<m; j++){
-                HashMap<Integer,Integer> map = new HashMap<>();
+                map.clear();
                 map.put(0,1);
                 int sum = 0;
                 for(int k=0; k<n; k++){
