@@ -1,20 +1,36 @@
 class Solution {
-    public int[][] divideArray(int[] nums, int k) {
-        Arrays.sort(nums);
-        int n = nums.length / 3;
-        int m = 3;
-        int[][] ans = new int[n][m];
-        for(int i=2; i<nums.length; i+=3){
-              if(nums[i] - nums[i-1] <= k && nums[i] - nums[i-2] <= k){
-                  int[] temp = new int[3];
-                  temp[0] = nums[i-2];
-                  temp[1] = nums[i-1];
-                  temp[2] = nums[i];
-                  ans[i/3] = temp;
-              }else{
-                  return new int[0][0];
-              }
+   public int[][] divideArray(int[] nums, int k) {
+        int[] freq = new int[100001];
+        int[][] ans = new int[nums.length/3][3];
+        int idx = 0;
+        for(int i=0; i<nums.length; i++){
+            freq[nums[i]]++;
+        }
+        int i=0;
+        while(i<freq.length && ans[ans.length-1][0] == 0){
+            while(i < freq.length && freq[i] == 0){
+                i++;
+            }
+            int[] temp = new int[3];
+            int count = 0;
+            int j = i+k;
+
+                while(i < freq.length && count <= 2 && i <= j ){
+                    if(freq[i] != 0){
+                        temp[count++] = i;
+                        freq[i]--;
+                    }
+                    if(freq[i] == 0){
+                        i++;
+                    }
+                }
+
+            if(count > 2){
+                ans[idx++] = temp;
+            }else{
+                return new int[0][0];
+            }
         }
         return ans;
-    }
+    } 
 }
