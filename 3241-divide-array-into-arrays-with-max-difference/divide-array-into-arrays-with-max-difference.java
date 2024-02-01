@@ -1,7 +1,12 @@
 class Solution {
    public int[][] divideArray(int[] nums, int k) {
-        int[] freq = new int[100001];
+       
         int[][] ans = new int[nums.length/3][3];
+        int max = Integer.MIN_VALUE;
+        for(int i=0; i<nums.length; i++){
+             max = Math.max(max,nums[i]);
+        }
+         int[] freq = new int[max+1];
         int idx = 0;
         for(int i=0; i<nums.length; i++){
             freq[nums[i]]++;
