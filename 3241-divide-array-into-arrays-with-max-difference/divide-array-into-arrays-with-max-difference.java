@@ -12,7 +12,7 @@ class Solution {
             freq[nums[i]]++;
         }
         int i=0;
-        while(i<freq.length && ans[ans.length-1][0] == 0){
+        while(i<freq.length){
             while(i < freq.length && freq[i] == 0){
                 i++;
             }
