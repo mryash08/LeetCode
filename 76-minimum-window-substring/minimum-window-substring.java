@@ -16,7 +16,7 @@ class Solution {
                           minLen = end - start;
                           minStart = start;
                     }
-                    final char c2 = s.charAt(start);
+                    char c2 = s.charAt(start);
                     freq[c2]++;
                     if (freq[c2] > 0) counter++;
                     start++;
