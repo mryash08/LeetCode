@@ -1,22 +1,23 @@
 class Solution {
     public int findLeastNumOfUniqueInts(int[] arr, int k) {
-         Arrays.sort(arr);
-         ArrayList<Integer> list = new ArrayList<>();
-         for(int i=0; i<arr.length;){
-             int temp = arr[i];
-             int j = i;
-             while(i < arr.length && temp == arr[i]){
-                 i++;
-             }
-             list.add(i-j);
-         }
-         Collections.sort(list);
-       while(k > 0){
-           k -= list.get(0);
-           if(k >= 0){
-               list.remove(0);
-           }
-       }
-        return list.size();
+        Arrays.sort(arr);
+        int[] node = new int[arr.length+1];
+        int cnt = 0;
+        int length=1;
+        for (int i = 0; i < arr.length; i++) {
+            if (i+1 < arr.length && arr[i] == arr[i+1]) {
+                length++;
+            } else {
+                cnt++;
+                node[length]++;
+                length=1;
+            }
+        }
+        for(int i=1;i<node.length;i++) {
+            int canRemove = Math.min(k/i, node[i]);
+            cnt-=canRemove;
+            k-=canRemove*i;
+        }
+        return cnt;
     }
 }
