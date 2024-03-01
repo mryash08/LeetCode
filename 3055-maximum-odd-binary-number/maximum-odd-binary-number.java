@@ -8,14 +8,12 @@ class Solution {
         }
         int n = s.length()-1;
         s = "";
-
         for(int i=0; i<n; i++){
             if(count1 > 1){
                 s = s + "1";
                 count1--;
             }else{
                 s = s + "0";
-                count0--;
             }
         }
         return s = s + "1";
