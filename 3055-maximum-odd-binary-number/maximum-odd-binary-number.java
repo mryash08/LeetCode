@@ -2,7 +2,7 @@ class Solution {
     public String maximumOddBinaryNumber(String s) {
         int count1 = 0;
         int count0 = 0;
-        for(int i : s.toCharArray()){
+        for(char i : s.toCharArray()){
                if(i == '1') count1++;
                else count0++;
         }
