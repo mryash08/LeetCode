@@ -7,15 +7,16 @@ class Solution {
                else count0++;
         }
         int n = s.length()-1;
-        s = "";
+        StringBuilder s1 = new StringBuilder();
         for(int i=0; i<n; i++){
             if(count1 > 1){
-                s = s + "1";
+                s1.append(1);
                 count1--;
             }else{
-                s = s + "0";
+                s1.append(0);
             }
         }
-        return s = s + "1";
+         s1.append(1);
+          return s1.toString();
     }
 }
