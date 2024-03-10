@@ -1,27 +1,24 @@
 class Solution {
-        public int[] intersection(int[] arr, int[] arr2) {
-        
-
-    
-       Map<Integer,Integer> map = new HashMap<>();
-        HashSet<Integer> set = new HashSet<>();
-
-        for(int i=0; i<arr.length; i++){
-            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
-        }
-
-        for (int i=0; i<arr2.length; i++){
-            if(map.containsKey(arr2[i])){
-                set.add(arr2[i]);
+        public int[] intersection(int[] nums1, int[] nums2) {
+       int N = 1001;
+        var set = new int [N];
+        for (var i : nums1) set[i] = 1;
+        int resCount = 0;
+        for (var i : nums2) {
+            if (set[i] == 1) {
+                set[i] = 2;
+                ++resCount;
             }
         }
-
-        int[] ans = new int[set.size()];
-        int i = 0;
-        for (int num : set){
-            ans[i++] = num;
-        } 
-        
-        return ans;
+        var res = new int[resCount];
+        var i = 0;
+        var nums = nums2.length > nums1.length ? nums1 : nums2;
+        for (var v : nums) {
+            if (set[v] == 2) {
+                res[i++] = v;
+                set[v] = 1;
+            }
+        }
+        return res;
     }
 }
