@@ -1,10 +1,10 @@
 class Solution {
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        List<int[]> result = new ArrayList<>();
+        List<int[]> list = new ArrayList<>();
         int i = 0;
         
         while (i < intervals.length && intervals[i][1] < newInterval[0]) {
-            result.add(intervals[i]);
+            list.add(intervals[i]);
             i++;
         }
         
@@ -13,18 +13,18 @@ class Solution {
             newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
             i++;
         }
-        result.add(newInterval);
+        list.add(newInterval);
         
         while (i < intervals.length) {
-            result.add(intervals[i]);
+            list.add(intervals[i]);
             i++;
         }
         
-        int[][] arr = new int[result.size()][2];
-        for (int j = 0; j < result.size(); j++) {
-            arr[j] = result.get(j);
+        int[][] ans = new int[list.size()][2];
+        for (int j = 0; j < list.size(); j++) {
+            ans[j] = list.get(j);
         }
         
-        return arr;
+        return ans;
     }
 }
