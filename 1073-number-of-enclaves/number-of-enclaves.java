@@ -8,7 +8,6 @@ class Solution {
             Helper(grid, 0, i);
             Helper(grid, grid.length - 1, i);
         }
-
         int ans = 0;
         for (int i = 1; i < grid.length - 1; i++) {
             for (int j = 1; j < grid[0].length - 1; j++) {
