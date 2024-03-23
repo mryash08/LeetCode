@@ -9,11 +9,9 @@ class Solution {
             Helper(grid, grid.length - 1, i);
         }
         int ans = 0;
-        for (int i = 1; i < grid.length - 1; i++) {
-            for (int j = 1; j < grid[0].length - 1; j++) {
-                if (grid[i][j] == 1) {
-                    ans++;
-                }
+        for(int[] i : grid){
+            for(int j : i){
+                ans += j;
             }
         }
         return ans;
