@@ -1,5 +1,6 @@
 class Solution {
     public int numBusesToDestination(int[][] routes, int source, int target) {
+         if(source == target) return 0;
          HashMap<Integer, List<Integer>> map = new HashMap<>();
          for(int i=0; i<routes.length; i++){
             for(int j=0; j<routes[i].length; j++){
@@ -11,7 +12,7 @@ class Solution {
                 map.put(routes[i][j],list);
             }
          }
-         if(source == target) return 0;
+        
          if(!map.containsKey(source)) return -1;
          if(!map.containsKey(target)) return -1;
         HashSet<Integer> bus = new HashSet<>();
