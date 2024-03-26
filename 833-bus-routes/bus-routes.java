@@ -58,13 +58,14 @@ class Solution {
             while(size-- > 0){
                 int temp = queue.remove();
                 if(temp == target) return level;
-                busStation.add(temp);
+                
                 for(int i=0; i<map.get(temp).size(); i++){
                     if(!bus.contains(map.get(temp).get(i))){
                         bus.add(map.get(temp).get(i));
                         for(int j=0; j<routes[map.get(temp).get(i)].length; j++){
                             if(!busStation.contains(routes[map.get(temp).get(i)][j])){
                                 queue.add(routes[map.get(temp).get(i)][j]);
+                                busStation.add(routes[map.get(temp).get(i)][j]);
                             }
                         }
                     }
