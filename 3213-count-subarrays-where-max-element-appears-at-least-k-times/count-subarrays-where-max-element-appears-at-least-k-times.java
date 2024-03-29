@@ -25,7 +25,8 @@ class Solution {
         while (right < nums.length) {
             long a = left - lastIndex;
             long b = nums.length - right - 1;
-            ans += a + b + (a * b) + 1;
+            ans += a + b + (
+                a * b) + 1;
             lastIndex = left + 1;
             left++;
             right++;
