@@ -3,19 +3,20 @@ class Solution {
         if(s.length() != t.length()) return false;
         HashMap<Character,Character> map = new HashMap<>();
         HashSet<Character> set = new HashSet<>();
-        for(int i=0; i<s.length(); i++){
-             if(map.containsKey(s.charAt(i))){
-                 if(map.get(s.charAt(i))!=t.charAt(i)){
+        char[] sarr = s.toCharArray();
+        char[] tarr = t.toCharArray();
+        for(int i=0; i<sarr.length; i++){
+             if(map.containsKey(sarr[i])){
+                 if(map.get(sarr[i])!=tarr[i]){
                         return false;
                  }
-             }else if(set.contains(t.charAt(i))){
+             }else if(set.contains(tarr[i])){
                  return false;
              }
              else{
-                 map.put(s.charAt(i),t.charAt(i));
-                 set.add(t.charAt(i));
+                 map.put(sarr[i],tarr[i]);
+                 set.add(tarr[i]);
              }
-
         }
         return true;
     }
