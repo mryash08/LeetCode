@@ -1,12 +1,12 @@
 class Solution {
     public int maxDepth(String s) {
         int count = 0;  int ans = 0;
-        for(int i=0; i<s.length(); i++){
-            if(s.charAt(i) == '('){
+        for(char i : s.toCharArray()){
+            if(i == '('){
                 count++;
             }
             ans = Math.max(ans,count);
-            if(s.charAt(i) == ')'){
+            if(i == ')'){
                 count--;
             }
         }
