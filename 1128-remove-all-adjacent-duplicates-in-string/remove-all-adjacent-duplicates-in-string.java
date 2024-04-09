@@ -1,19 +1,15 @@
 class Solution {
-    public String removeDuplicates(String S) {
-        if (S == null || S.length() <= 1) {
-            return S;
+    public String removeDuplicates(String s) {
+        char[] chars=s.toCharArray();
+        int i = -1;
+        for(char c : chars){
+            if(i >= 0 && c == chars[i]){
+                i--;
+            }else{
+                i += 1;
+                chars[i]= c;
+            }
         }
-        char[] chars = S.toCharArray(); 
-        int slow = 0; 
-        
-        
-        for (int fast = 1; fast < S.length(); fast++) {
-            if (slow >= 0 && chars[slow] == chars[fast]) {
-                slow--; 
-            } else { 
-                chars[++slow] = chars[fast]; 
-        }
-        }
-        return new String(chars, 0, slow + 1);
+        return String.valueOf(chars, 0, i+1);
     }
 }
