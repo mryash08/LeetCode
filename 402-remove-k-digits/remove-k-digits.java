@@ -1,19 +1,20 @@
 class Solution {
     public String removeKdigits(String num, int k) {
+        char[] ch = num.toCharArray();
         StringBuilder str = new StringBuilder();
         int j = -1;
         int i = 0;
-        while (num.length() >= i + 2 && num.charAt(i + 1) == '0' && k != 0) {
+        while (ch.length >= i + 2 && ch[i + 1] == '0' && k != 0) {
             i += 2;
             k--;
         }
-        for (; i < num.length(); i++) {
-            while(j != -1 && k != 0 && str.charAt(j) > num.charAt(i)){
+        for (; i < ch.length; i++) {
+            while(j != -1 && k != 0 && str.charAt(j) > ch[i]){
                 str.delete(j,j+1);
                 j--;
                 k--;
             }
-                str.append(num.charAt(i));
+                str.append(ch[i]);
                 j++;
         }
         
