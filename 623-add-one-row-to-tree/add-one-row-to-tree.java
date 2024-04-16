@@ -26,17 +26,17 @@ class Solution {
          while(!queue.isEmpty()){
               int size = queue.size();
               while(size-- > 0){
+                TreeNode curr  = queue.remove();
                    if(level+1 == depth){
                       TreeNode newLeft = new TreeNode(val);
                       TreeNode newRight = new TreeNode(val);
-                      newLeft.left = queue.peek().left;
-                      newRight.right = queue.peek().right;
-                      queue.peek().left = newLeft;
-                      queue.remove().right = newRight;
+                      newLeft.left = curr.left;
+                      newRight.right = curr.right;
+                      curr.left = newLeft;
+                      curr.right = newRight;
                    }else{
-                      if(queue.peek().left != null) queue.add(queue.peek().left);
-                      if(queue.peek().right != null) queue.add(queue.peek().right);
-                      queue.remove();
+                      if(curr.left != null) queue.add(curr.left);
+                      if(curr.right != null) queue.add(curr.right);
                    }
               }
               level++;
