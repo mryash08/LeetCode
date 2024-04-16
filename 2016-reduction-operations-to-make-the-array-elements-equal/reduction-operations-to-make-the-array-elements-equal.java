@@ -1,10 +1,6 @@
 class Solution {
     public int reductionOperations(int[] nums) {
-        int max = Integer.MIN_VALUE;
-        for(int i=0; i<nums.length; i++){
-            max = Math.max(max,nums[i]);
-        }
-        int[] freq = new int[max+1];
+        int[] freq = new int[50001];
         for(int i=0; i<nums.length; i++){
             freq[nums[i]]++;
         }
