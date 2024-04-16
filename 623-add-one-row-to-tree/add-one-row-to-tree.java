@@ -40,6 +40,7 @@ class Solution {
                    }
               }
               level++;
+              if(level == depth) return root;
          }
          return root;
     }
